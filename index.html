@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBShBTM8cSiyCp4sxEKkGNt85nEQUwR3E&libraries=places"></script>
+</head>
+<body class="refined-theme">
+    <div class="app-container">
+        <header>
+            <h1>Travel Itinerary Builder</h1>
+            <div class="search-container">
+                <input type="text" id="destination" placeholder="Enter destination">
+                <input type="date" id="start-date" placeholder="Start Date">
+                <input type="date" id="end-date" placeholder="End Date">
+                <button onclick="searchDestination()">Search</button>
+            </div>
+        </header>
+
+        <main>
+            <aside class="sidebar">
+                <div class="weather-widget">
+                    <h3>Weather Forecast</h3>
+                    <div id="weather-info"></div>
+                </div>
+            </aside>
+
+            <section class="main-content">
+                <div id="map"></div>
+                <div class="itinerary-builder">
+                    <h3>Your Itinerary</h3>
+                    <div id="itinerary-days"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
