@@ -1,9 +1,14 @@
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --background-color: #f3f4f6;
-    --card-background: #ffffff;
-    --text-color: #1f2937;
+    --primary-color: #557b83; /* Slate Green */
+    --secondary-color: #c7b198; /* Taupe */
+    --background-color: #f0ead6; /* Linen */
+    --card-background: #ffffff; /* White */
+    --text-color: #2e3131; /* Charcoal */
+    --text-muted: #6c757d; /* Gray */
+    --accent-color: #e07a5f; /* Burnt Orange */
+    --border-color: #d3d3d3; /* Light Gray */
+    --success-color: #28a745;
+    --error-color: #dc3545;
 }
 
 * {
@@ -13,146 +18,206 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .app-container {
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 3rem;
+    animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
     background-color: var(--card-background);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
+    padding: 2.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 3rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    font-family: 'Poppins', sans-serif;
 }
 
 .search-container {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
 }
 
-input, button {
-    padding: 0.5rem 1rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.375rem;
+input,
+button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.3rem;
     font-size: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(85, 123, 131, 0.3);
 }
 
 button {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--card-background);
     cursor: pointer;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
+    color: var(--card-background);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 main {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 1.5rem;
+    display: flex;
+    gap: 3rem;
 }
 
 .sidebar {
+    width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.weather-widget, .attractions {
+.weather-widget {
     background-color: var(--card-background);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
 }
 
-.filters {
-    display: flex;
-    gap: 0.5rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
-}
-
-.filters button {
-    font-size: 0.875rem;
-    padding: 0.375rem 0.75rem;
+.weather-widget h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #map {
-    height: 400px;
+    height: 500px;
     border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.main-content {
+    flex: 1;
 }
 
 .itinerary-builder {
     background-color: var(--card-background);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.draggable-items {
-    margin-top: 1rem;
+.itinerary-builder h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
-.attraction-card {
+.itinerary-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
     background-color: var(--background-color);
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    margin-bottom: 0.5rem;
-    cursor: move;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    line-height: 1.5;
 }
 
-.attraction-card:hover {
-    background-color: #e5e7eb;
+.itinerary-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(85, 123, 131, 0.3);
 }
 
 .itinerary-day {
-    background-color: var(--background-color);
-    padding: 1rem;
-    border-radius: 0.375rem;
-    margin-bottom: 1rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
 }
 
 .itinerary-day h4 {
-    margin-bottom: 0.5rem;
-}
-
-.drop-zone {
-    min-height: 100px;
-    border: 2px dashed #e5e7eb;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.drop-zone.dragover {
-    background-color: #e5e7eb;
-    border-color: var(--primary-color);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .weather-info {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.5rem;
-    background-color: var(--background-color);
-    border-radius: 0.375rem;
-    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.weather-info p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .weather-icon {
@@ -160,88 +225,29 @@ main {
     height: 50px;
 }
 
-.itinerary-item {
-    position: relative;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    background-color: white;
-    border-radius: 0.375rem;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease;
-}
-
-.itinerary-item:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.itinerary-note {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    background-color: #fafafa;
-    border-radius: 0.25rem;
-    cursor: text;
-    min-height: 2.5rem;
-    transition: background-color 0.2s ease;
-    color: #6b7280;
-}
-
-.itinerary-note:hover {
-    background-color: #f3f4f6;
-}
-
-.itinerary-note.editing {
-    padding: 0;
-    background-color: transparent;
-}
-
-.itinerary-edit-input {
-    width: 100%;
-    min-height: 2.5rem;
-    padding: 0.5rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.25rem;
-    font-family: inherit;
-    font-size: inherit;
-    resize: vertical;
-    background-color: white;
-    color: var(--text-color);
-}
-
-.itinerary-edit-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-}
-
-.delete-item {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: #ef4444;
-    color: white;
-    font-size: 1.25rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.2s ease, background-color 0.2s ease;
-}
-
-.itinerary-item:hover .delete-item {
-    opacity: 1;
-}
-
-.delete-item:hover {
-    background-color: #dc2626;
-}
-
 @media (max-width: 768px) {
     main {
         grid-template-columns: 1fr;
+    }
+
+    .app-container {
+        padding: 1.5rem;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    .search-container {
+        padding: 0.75rem;
+    }
+
+    input,
+    button {
+        width: 100%;
     }
 }
